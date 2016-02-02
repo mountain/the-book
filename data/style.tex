@@ -1,0 +1,68 @@
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry} % 用于设置页面布局
+\usepackage{xeCJK} % 用于使用本地字体
+\usepackage[super, square, sort&compress]{natbib} % 处理参考文献
+\usepackage{titlesec, titletoc} % 设置章节标题及页眉页脚
+%\usepackage{xCJKnumb} % 中英文数字转换
+\usepackage{amssymb}
+\usepackage{amsmath} % 在公式中用\text{文本}输入中文
+\usepackage{diagbox}
+\usepackage{multirow} % 表格中使用多行
+\usepackage{booktabs} % 表格中使用\toprule等命令
+\usepackage{rotating} % 使用sidewaystable环境旋转表格
+\usepackage{tabularx}
+\usepackage{graphicx} % 处理图片
+\usepackage{footnote} % 增强的脚注功能，可添加表格脚注
+\usepackage{threeparttable} % 添加真正的表格脚注,示例见README
+\usepackage{hyperref} % 添加pdf书签
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shadows}
+
+% 字体设置
+\setmainfont{Times New Roman}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{PT Sans}
+\setmonofont[Scale=MatchLowercase]{PT Mono}
+\setCJKmainfont[ItalicFont={Kaiti SC}, BoldFont={Heiti SC}]{Songti SC}
+\setCJKsansfont{Heiti SC}
+\setCJKmonofont{Songti SC}
+% \setCJKmainfont[BoldFont={FZXiaoBiaoSong-B05S}]{Songti SC}
+% \setCJKfamilyfont{kai}[BoldFont=Heiti SC]{Kaiti SC}
+% \setCJKfamilyfont{song}[BoldFont=Heiti SC]{Songti SC}
+% \setCJKfamilyfont{hei}[BoldFont=Heiti SC]{Heiti SC}
+% \setCJKfamilyfont{fsong}[BoldFont=Heiti SC]{Songti SC}
+% \newcommand{\kai}[1]{{\CJKfamily{kai}#1}}
+% \newcommand{\hei}[1]{{\CJKfamily{hei}#1}}
+% \setromanfont[Mapping=tex-text]{TeXGyrePagella}
+% \setsansfont[Scale=MatchLowercase,Mapping=tex-text]{TeXGyrePagella}
+% \setmonofont[Scale=MatchLowercase]{Courier New}
+%%设置常用中文字号，方便调用
+\newcommand{\erhao}{\fontsize{22pt}{\baselineskip}\selectfont}
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+\newcommand{\liuhao}{\fontsize{7.5pt}{\baselineskip}\selectfont}
+
+% 章节标题显示方式及页眉页脚设置
+% \item xCJKnumb是自己额外安装的包
+% \item titleformat命令定义标题的形式
+% \item titlespacing定义标题距左、上、下的距离
+\titleformat{\section}{\raggedright\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\raggedright\normalsize\bfseries}{\thesubsection}{1em}{}
+\titlespacing{\section}{0pt}{*0}{*2}
+\titlespacing{\subsection}{0pt}{*0}{*1}
+% 由于默认的2em缩进不够，所以我手动调整了，但是在windows下似乎2.2就差不多了，或者是article中没有这个问题
+\setlength{\parindent}{2.2em}
+
+% 设置表格标题前后间距
+\setlength{\abovecaptionskip}{0pt}
+\setlength{\belowcaptionskip}{0pt}
+
+\renewcommand{\refname}{\bfseries{参~考~文~献}} %将Reference改为参考文献（用于 article）
+% \renewcommand{\bibname}{参~考~文~献} %将bibiography改为参考文献（用于 book）
+\renewcommand{\baselinestretch}{1.38} %设置行间距
+\renewcommand{\figurename}{\small\ttfamily 图}
+\renewcommand{\tablename}{\small\ttfamily 表}
