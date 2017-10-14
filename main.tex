@@ -1,6 +1,9 @@
 \documentclass[a4paper,10.5pt]{article}
 \usepackage{hieroglf} % 添加古埃及象形文字
 \usepackage{pifont} % 添加 Dingbat
+\usepackage{ccicons} % 添加 CC 协议
+\usepackage{datetime}
+
 
 \input{data/style}
 
@@ -11,25 +14,44 @@
 
 \title{异星杂谭}
 \author{苑明理}
-\date{2016年2月}
+\date{}
 
 \begin{document}
 
-\maketitle{}
+\newdateformat{monthyeardate}{%
+  \THEYEAR 年 \THEMONTH 月}
 
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=4.5in]{images/0_00-Cover.png}
-\end{figure}
-
+\makeatletter
+    \begin{titlepage}
+        \begin{center}
+            \includegraphics[width=4.5in]{images/0_00-Cover.png}\\[10ex]
+            {\erhao \bfseries  \@title }\\[50ex]
+            {\sanhao  \@author}\\[5ex]
+            {\sihao \monthyeardate\today}\\[1ex]
+        \end{center}
+    \end{titlepage}
+\makeatother
+\thispagestyle{empty}
+\newpage
+%Add content for page two here (useful for two-sided printing)
 
 \newpage
+\thispagestyle{empty}
+\maketitle
+\begin{center}
+    \ccbysa
+\end{center}
+\thispagestyle{empty}
+
+\newpage
+
 \renewcommand\contentsname{目录}
-\setcounter{tocdepth}{2}
 \tableofcontents
+\thispagestyle{empty}
 
 \newpage
+
+\setcounter{page}{1} %Start the actually document on page 1
 
 \section{序言}
 
@@ -61,7 +83,7 @@
 \end{figure}
 
 然而人类对宇宙的追寻并不只停留在艺术式的表现，更在于能够精确预测天文现象。根据一种假说，建于公元前两、三千多年前的英国巨石阵
-可以用来预测日月的位置和日食的发生。预测方法是使用巨石阵内 56 个 Aubrey 洞来实现的，它的原理是基于用公分子 56 来近似表达三个天文周期。
+可以用来定位日月的位置并预测日食的发生。预测方法是使用巨石阵内 56 个 Aubrey 洞来实现的，它的原理是基于用公分子 56 来近似表达三个天文周期。
 
 \begin{figure}[ht]
 \centering
