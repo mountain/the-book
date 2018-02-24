@@ -1,8 +1,9 @@
-\documentclass[a4paper,10.5pt]{article}
+\documentclass[a4paper,10.5pt]{book}
 \usepackage{hieroglf} % 添加古埃及象形文字
 \usepackage{pifont} % 添加 Dingbat
 \usepackage{ccicons} % 添加 CC 协议
 \usepackage{datetime}
+\usepackage{titlesec}
 
 \usepackage{exercise,chngcntr}
 \counterwithin{Exercise}{section}
@@ -11,6 +12,16 @@
 
 \newcommand{\specialcell}[2][c]{%
   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+
+\titleformat{\chapter}[display]
+  {\bfseries \sanhao}
+  {第 \thechapter 章}
+  {1ex}
+  {\titlerule\vspace{1ex}\filleft}
+  [\vspace{1ex}\titlerule]
+
+\titlespacing{\chapter}{0pt}{*1}{*1.5}
 
 \pmhgfamily
 
@@ -47,15 +58,10 @@
 
 \newpage
 
-\renewcommand\contentsname{目录}
-\tableofcontents
-\thispagestyle{empty}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
 
-\newpage
-
-\setcounter{page}{1} %Start the actually document on page 1
-
-\section{序言}
+\chapter*{序言}
 
 幼时夏夜，在屋顶乘凉，仰望壮丽的星空，时而会有一些遐想：在某个闪亮的星星附近，是否也有另一个“我”，同样在仰望星空，同样在发问？
 后来读到 Ted Chiang 的《你一生的故事》，深为外星异质文化带来的观念冲击而着迷。为什么呢？因为人们可以通过不同来重新审视自己。
@@ -70,9 +76,23 @@
 
 \newpage
 
-\section{人类对宇宙的认识之路}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0em}
 
-\subsection{远古的探寻}
+\renewcommand\contentsname{目录}
+\tableofcontents
+\thispagestyle{empty}
+
+\newpage
+
+\setcounter{page}{1} %Start the actually document on page 1
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\chapter{人类对宇宙的认识之路}
+
+\section{远古的探寻}
 
 自古以来，天空中的日、月、星辰引发了人们无尽的想象和探究。1999年人们在德国发现了内布拉星象盘，它是公元前16世纪青铜时代的器物。
 在这个铜盘之上同时出现有太阳、月亮和星辰。根据一种解释，该盘上太阳和月亮之间的那团七星，是著名的金牛座“七姐妹”—昴宿星团。
@@ -115,7 +135,7 @@
 
 \newpage
 
-\subsection{文明时代}
+\section{文明时代}
 
 尽管希腊人已经发展了多种不同的宇宙理论，但在古代很长时间里大多数人认为“地球是宇宙所有运动的中心”。这个命题赋予了地球无比特殊的地位。
 然而即便是在中世纪也有人对此产生异议。
@@ -144,7 +164,7 @@ Nicole Oresme（132x？ – 1382）是欧洲中世纪晚期的哲学家，他在
 
 \newpage
 
-\subsection{文艺复兴}
+\section{文艺复兴}
 
 其后欧洲进入文艺复兴，人才辈出。
 
@@ -196,7 +216,7 @@ Tycho Brahe (1546 – 1601)
 
 \newpage
 
-\subsection{近现代}
+\section{近现代}
 
 对自然深度的认识之路
 
@@ -214,9 +234,9 @@ Tycho Brahe (1546 – 1601)
 
 \newpage
 
-\section{运动的星体}
+\chapter{运动的星体}
 
-\subsection{运动方程}
+\section{运动方程}
 
 下面我们先从星体的动力学方程开始讨论。我们指定两颗恒星的下标分别是1、2，行星的下标为，于是三个星体的质量分别是$m_1$、$m_2$、$m_3$，
 位置分别是矢量 $\mathbf{x_1}$、$\mathbf{x_2}$、$\mathbf{x_3}$；因为行星质量 $m_3$ 远小于两个恒星的质量，可建立如下限定性三体问题的运动方程：
@@ -231,7 +251,7 @@ $$
 
 其中$r_{ij}$ 为星体 i 和 j 之间的距离，$\mathbf{e_{ij}}$ 为星体 i 和 j 之间的单位方向矢量。
 
-\subsection{方程的解算}
+\section{方程的解算}
 
 三体系统很多情况下是不稳定的，常常会有一颗星体被抛射到无穷远处。
 下图便是三体体系的一个著名例子—毕达哥拉斯三体问题的轨道演化图。两颗质量较大的星体相互围绕旋转下行，而质量最小的第三颗星体则被甩出，沿着双曲线上行。
@@ -245,7 +265,7 @@ $$
 这种不符合能量守恒的计算解中的能量变化，被称为能量漂移（Energy drift）。为了消除能量漂移，人们引入了辛方法来计算此类问题。
 辛方法会保持系统的能量守恒。我们在这里则采用了一种二阶的辛方法 Verlet 积分。采用 Verlet 积分方法之后，我们就很容易计算出一条稳定的轨道了。
 
-\subsection{天球系统}
+\section{天球系统}
 
 为了更好的陈述后面几节，我们将讨论天球系统，我们以地球的天球系统为基础展开讨论。
 
@@ -264,7 +284,7 @@ $$
 以上几何元素在瓦克星上依然成立。不一样的地方在于，黄道上有两颗母星沿着它运动。和地球类似，恒星的周日运动依然存在 ；但周年运动则大相径庭，
 两颗母星的周年运动轨迹比较复杂，我们在后面章节仅作简单讨论，更多结果有待进一步研究。
 
-\subsection{宜居性}
+\section{宜居性}
 
 我们以液态水的稳定存在作为行星的宜居条件，可以做如下最为粗略的估计。假设母星为黑体且表面温度分别为 $T_1$ 和 $T_2$ ，母星的半径分别为 $R_1$ 和 $R_2$，瓦克星的行星反照率为 $\alpha$，半径为 $R_3$ ，视瓦克星为黑体且表面温度为 $T_3$  ，可以建立如下方程：
 
@@ -280,7 +300,7 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 
 虽然这里宜居条件的估计涉及行星表面的物理机制，但最终化简的公式里，只保留了一些纯几何量的简单对比。所以，我们仍然把宜居问题的粗略估计纳入到恒星系建模的范围里。
 
-\subsection{四方位}
+\section{四方位}
 
 方位感是人类内在生物机制。可是空间上的秩序并非空间自有的属性，是人类叠加到物理世界上的。可以说四方位、地名的概念是人类发明的最早的增强现实（Augmented Reality）的技术了。
 
@@ -320,7 +340,7 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 
 我们可以清楚看到，瓦克星南北两极都处于极昼。
 
-\subsection{昼夜晨昏}
+\section{昼夜晨昏}
 
 昼夜现象是由三颗星体和行星的旋转轴之间的相对几何关系确定的。容易想见在行星的球体表面上，每一个母星都对应一个昼夜变更的大圆 ，
 它们对应圆面   和   的法线方向分别是    和   。 容易看出   是黄道面   的法线。
@@ -331,7 +351,7 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 将以上关系编程就可以很容易模拟出瓦克星上的昼夜现象。那么瓦克星上的昼夜现象有什么特别的吗？ 通过模拟我们发现，一年中会有短暂的几天时间，
 瓦克星的南北两极同时处于极昼之中。这和地球大相径庭，地球上南极处于极昼，则北极处于极夜，或者反之。
 
-\subsection{年}
+\section{年}
 
 正东、正西方位可以从正南、正北方位推导出来。但在地球上与此有关的概念还包括分至四时—春分、夏至、秋分、冬至；
 在地球的各大文化里，这四个时间点往往有重要的天文与文化含义。
@@ -349,13 +369,13 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 
 所以这里有一个重要的理论问题—确定星体间的这些几何关系发生的先后关系和周期。
 
-\subsection{季节}
+\section{季节}
 
-\section{再造行星世界}
+\chapter{再造行星世界}
 
 行星建模是涉及行星表面物理机制的建模过程。我们完成了地表特征的生成、估计温室效应和对大气现象的初步模拟。
 
-\subsection{大陆与海洋}
+\section{大陆与海洋}
 
 菱形方块算法[18]是常用的地表特征生成算法，它的常见形式是在一个方形区域上展开的。我们对它稍加变形，让它适应球面上地表特征生成的特殊需求。
 
@@ -389,7 +409,7 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 下图就是我们生成出来的一幅瓦克星全球地形图。可以看到有两个大陆和两个大的岛屿。大陆上有山地、高原、平原等地形区别。
 当把地图按照相应的经纬度投影到球面之上，我们便得到了本文图（一）的瓦克星全球的俯视图，加上恒星照射产生的白昼和黑夜便得到了图（二）中的景象。
 
-\subsection{温室效应}
+\section{温室效应}
 
 本节我们用一个简化模型来估计瓦克星的温室效应。一方面，我们不考虑地气系统的纬向差异，认为系统参量只是纬度的函数。另一方面，我们假设瓦克星类似于地球，有相同的地气系统辐射平衡模式[21]。
 
@@ -422,9 +442,9 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 我们可以根据本式展开模拟。
 
 
-\subsection{气温的纬度分布}
+\section{气温的纬度分布}
 
-\subsection{大气环流}
+\section{大气环流}
 
 将基本的物理定律应用于大气的运动，我们可以得到大气运动基本方程[23]：
 
@@ -457,11 +477,11 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 
 上面两个图展示了，模拟开始和进行一段时间之后，气温沿着高度的分布状况。气温高的颜色是红色，气温低的颜色是蓝色。对比上面两个图可以发现，模拟开始时，地面长波辐射被近地大气层吸收，所以近地的气温高，而高空是冷的；然而系统演化一段时间之后，大气温度随着高度上升首先是出现逆变，高空中出现冷气层，渡过冷气层继续上升后，温度才开始上升。这恰巧和地球上的实际情况吻合，冷气层以下是对流层[25]，冷气层以上是平流层[26]。
 
-\subsection{海气耦合}
+\section{海气耦合}
 
-\subsection{理想大陆}
+\section{理想大陆}
 
-\section{重建生物圈}
+\chapter{重建生物圈}
 
 最基本的问题有哪些？
 
@@ -471,9 +491,9 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 生命体之间有什么样的连接关系？
 什么样的生态景观？
 
-\subsection{生命与演化}
+\section{生命与演化}
 
-\subsection{尺度的大小}
+\section{尺度的大小}
 
 我们先回顾地球生物的异速生长现象。异速生长律是实际测量到的一类幂率关系，
 它把生物体的尺度同其生理、生态特征联系起来。而这个观测到的幂率，往往不同于将生命体几何结构同构扩张后得到的理论幂率，故此称为异速生长。
@@ -490,15 +510,15 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 行为学的信息：如最大奔跑速度
 生态学信息：内禀增长率、食谱组成等
 
-\subsection{植物形态}
+\section{植物形态}
 
-\subsection{动物形态}
+\section{动物形态}
 
-\subsection{生态带}
+\section{生态带}
 
-\section{另辟蹊径的文明}
+\chapter{另辟蹊径的文明}
 
-\subsection{数制}
+\section{数制}
 
 大约在 18000 ～ 20000 BC 的 Ishango 骨刻，是目前人们发现的最早和数目有关的考古实物，它处在刻痕记事的阶段。
 如果不考虑实物的形态，仅从抽象角度看，在这个阶段人们采用符号 1 的累记来表示更大的数目。
@@ -575,7 +595,7 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 \caption{竖式乘法的例子}
 \end{table}
 
-\subsection{历法}
+\section{历法}
 
 历法是一种文化的计时方法，它也有服务于农业生产的目的。由此我们有天文历和农业历的分别；前者依据天文现象的周期性来计时，后者依据气候现象的周期性来指导农业生产。
 
@@ -597,10 +617,10 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 这三种历法的基准都是类周期的，且周期各不相同，因此维护瓦克星的历法系统需要随时保持对各种星体的观测。
 三种历法中，食历和农历的确立基准比较易于观测，因此容易被原始一些的文化建立；而星历的建立则复杂的多。
 
-\subsection{逻辑}
+\section{逻辑}
 
-\subsection{文字}
+\section{文字}
 
-\section{余论}
+\chapter{余论}
 
 \end{document}
