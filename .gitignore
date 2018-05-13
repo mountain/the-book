@@ -135,6 +135,7 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+
 ### OSX template
 .DS_Store
 .AppleDouble
