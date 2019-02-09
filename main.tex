@@ -4,7 +4,8 @@
 \usepackage{pifont} % 添加 Dingbat
 \usepackage{ccicons} % 添加 CC 协议
 \usepackage{datetime}
-\usepackage{titlesec}
+
+\usepackage{chapterbib}
 
 \usepackage{exercise,chngcntr}
 \counterwithin{Exercise}{section}
@@ -97,7 +98,7 @@
 
 自古以来，天空中的日、月、星辰引发了人们无尽的想象和探究。1999 年人们在德国发现了内布拉星象盘，它是公元前 16 世纪青铜时代的器物。
 在这个铜盘之上同时出现有太阳、月亮和星辰。根据一种解释，该盘上太阳和月亮之间的那团七星，是著名的金牛座“七姐妹”—昴宿星团。
-内布拉星象盘（Nebra sky disk）艺术式地表现了人们对宇宙的思考与追寻。
+内布拉星象盘（Nebra sky disk）艺术式地表现了人们对宇宙的思考与追寻。\cite{pasztor2007interpretation}
 
 \begin{figure}[ht]
 \centering
@@ -115,7 +116,7 @@
 \end{figure}
 
 这三个天文周期分别是太阳的运动周期（地球的周年运动）、月球的运行周期和沙罗周期，它们的周期和近似的分数表示如下表所示。于是我们可以把沙盘的圆周等分
-成 56 份，然后在上面简单地计数，来模拟日、地、月的运行。并且这些模拟可以不断通过观测来校正，这样使得整个预报系统能够长期相对精确地运行。
+成 56 份，然后在上面简单地计数，来模拟日、地、月的运行。并且这些模拟可以不断通过观测来校正，这样使得整个预报系统能够长期相对精确地运行。\cite{beggs2012unifying}
 
 \begin{table}[tbhp]
 \centering
@@ -149,7 +150,7 @@
 \end{figure}
 
 安提基特拉器械详细的 X 射线成像表明，它共有 37 个齿轮，能够模拟月球和太阳的运动、预测日食，甚至可以模拟月球的不规则运动。
-在公元前 2 世纪，罗得岛的天文学家喜帕恰斯（Hipparchus）研究了这种运动，因此人们推测他可能参与了机器的制造。
+在公元前 2 世纪，罗得岛的天文学家喜帕恰斯（Hipparchus）研究了这种月球的不规则运动，因此人们推测他可能参与了机器的制造。
 
 在文献中，古希腊最重要的宇宙观来自于托勒密（Ptolemy）。
 
@@ -246,6 +247,8 @@ Tycho Brahe (1546 – 1601)
 
 系外行星
 
+\bibliographystyle{abbrvnat}
+\bibliography{biblio/chp01}
 \newpage
 
 \chapter{运动的星体}
@@ -389,6 +392,12 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 
 所以这里有一个重要的理论问题—确定星体间的这些几何关系发生的先后关系和周期。
 
+\newpage
+
+\bibliography{biblio/chp02}
+
+\newpage
+
 \chapter{再造行星世界}
 
 行星建模是涉及行星表面物理机制的建模过程。我们完成了地表特征的生成、估计温室效应和对大气现象的初步模拟。
@@ -509,6 +518,12 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 
 \section{季节}
 
+\newpage
+
+\bibliography{biblio/chp03}
+
+\newpage
+
 \chapter{重建生物圈}
 
 最基本的问题有哪些？
@@ -543,6 +558,12 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 \section{动物形态}
 
 \section{生态带}
+
+\newpage
+
+\bibliography{biblio/chp04}
+
+\newpage
 
 \chapter{另辟蹊径的文明}
 
@@ -657,6 +678,18 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 
 \section{文字}
 
+\newpage
+
+\bibliography{biblio/chp05}
+
+\newpage
+
 \chapter{余论}
+
+\newpage
+
+\bibliography{biblio/chp06}
+
+\newpage
 
 \end{document}
