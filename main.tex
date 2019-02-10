@@ -7,6 +7,11 @@
 
 \usepackage{chapterbib}
 
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixname}{附录}
+\renewcommand{\appendixtocname}{附录}
+\renewcommand{\appendixpagename}{附录}
+
 \usepackage{exercise,chngcntr}
 \counterwithin{Exercise}{section}
 
@@ -92,13 +97,13 @@
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 
-\chapter{人类对宇宙的认识之路}
+\chapter{引子：人类对宇宙的认识之路}
 
 \section{远古的探寻}
 
-自古以来，天空中的日、月、星辰引发了人们无尽的想象和探究。1999 年人们在德国发现了内布拉星象盘，它是公元前 16 世纪青铜时代的器物。
+自古以来，天空中的日、月、星辰引发了人们无尽的想象和探究。1999 年人们在德国发现了内布拉星象盘（Nebra sky disk），它是公元前 16 世纪青铜时代的器物。
 在这个铜盘之上同时出现有太阳、月亮和星辰。根据一种解释，该盘上太阳和月亮之间的那团七星，是著名的金牛座“七姐妹”—昴宿星团。
-内布拉星象盘（Nebra sky disk）艺术式地表现了人们对宇宙的思考与追寻。\cite{pasztor2007interpretation}
+内布拉星象盘艺术式地表现了人们对宇宙的思考与追寻。\cite{pasztor2007interpretation}
 
 \begin{figure}[ht]
 \centering
@@ -229,8 +234,6 @@ Tycho Brahe (1546 – 1601)
 \caption{第谷建立的天文台（图片来自于维基共享资源计划）}
 \end{figure}
 
-\newpage
-
 \section{近现代}
 
 对自然深度的认识之路
@@ -246,6 +249,11 @@ Tycho Brahe (1546 – 1601)
 哈勃更利用造父变星确认河外星系的普遍存在。他还发现了河外星系的红移与距离的关系，也就是哈勃定律，为宇宙大爆炸理论提供了支持。宇宙微波背景噪音的观测。
 
 系外行星
+
+\section*{导读与习题}
+
+
+
 
 \bibliographystyle{abbrvnat}
 \bibliography{biblio/chp01}
@@ -391,6 +399,8 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 
 所以这里有一个重要的理论问题—确定星体间的这些几何关系发生的先后关系和周期。
 
+\section*{导读与习题}
+
 \bibliographystyle{abbrvnat}
 \bibliography{biblio/chp02}
 
@@ -514,6 +524,8 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 
 \section{季节}
 
+\section*{导读与习题}
+
 \bibliographystyle{abbrvnat}
 \bibliography{biblio/chp03}
 
@@ -551,6 +563,8 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 \section{动物形态与运动}
 
 \section{生态带}
+
+\section*{导读与习题}
 
 \bibliographystyle{abbrvnat}
 \bibliography{biblio/chp04}
@@ -642,6 +656,8 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 \caption{竖式乘法的例子}
 \end{table}
 
+\section{逻辑}
+
 \section{历法}
 
 历法是一种文化的计时方法，它也有服务于农业生产的目的。由此我们有天文历和农业历的分别；前者依据天文现象的周期性来计时，后者依据气候现象的周期性来指导农业生产。
@@ -664,16 +680,25 @@ $$T_3 = \left[ \frac{1}{4} \left( 1 - \alpha \right ) \left( \frac{R_1^2}{r_{13}
 这三种历法的基准都是类周期的，且周期各不相同，因此维护瓦克星的历法系统需要随时保持对各种星体的观测。
 三种历法中，食历和农历的确立基准比较易于观测，因此容易被原始一些的文化建立；而星历的建立则复杂的多。
 
-\section{逻辑}
-
 \section{文字}
+
+\section*{导读与习题}
 
 \bibliographystyle{abbrvnat}
 \bibliography{biblio/chp05}
 
 \chapter{余论：文明的命运}
 
+\section*{导读与习题}
+
 \bibliographystyle{abbrvnat}
-\bibliography{biblio/chp06}
+\bibliography{biblio/chp05}
+
+\begin{appendices}
+\chapter{习题的线索}
+\bibliographystyle{abbrvnat}
+\bibliography{biblio/appdx}
+
+\end{appendices}
 
 \end{document}
