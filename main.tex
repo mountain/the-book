@@ -14,6 +14,8 @@
 
 \usepackage{exercise,chngcntr}
 \counterwithin{Exercise}{section}
+\renewcommand{\ExerciseName}{练习}
+\renewcommand{\DifficultyMarker}{$\dagger$}
 
 \input{data/style}
 
@@ -98,8 +100,6 @@
 
 \chapter{人类对宇宙的认识之路}
 
-\section{远古的探寻}
-
 自古以来，天空中的日、月、星辰引发了人们无尽的想象和探究。1999 年人们在德国发现了内布拉星象盘（Nebra sky disk），它是公元前 16 世纪青铜时代的器物。
 在这个铜盘之上同时出现有太阳、月亮和星辰。根据一种解释，该盘上太阳和月亮之间的那团七星，是著名的金牛座“七姐妹”—昴宿星团。
 内布拉星象盘艺术式地表现了人们对宇宙的思考与追寻。\cite{pasztor2007interpretation}
@@ -110,14 +110,10 @@
 \caption{内布拉星象盘（图片来自于维基共享资源计划）}
 \end{figure}
 
-然而人类对宇宙的追寻并不只停留在艺术式的表现，更在于能够精确预测天文现象。根据一种假说，建于公元前两、三千多年前的英国巨石阵（Stonehenge）
-可以用来定位日月的位置并预测日食的发生。预测方法是使用巨石阵内 56 个奥布里洞（Aubrey holes）来实现的，它的原理是基于用公分子 56 来近似表达三个天文周期。
+\section{远古的探寻}
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=5.0in]{images/1_02-Stonehenge.jpg}
-\caption{巨石阵（图片来自于维基共享资源计划）}
-\end{figure}
+然而，人类对宇宙的追寻并不只停留在艺术式的表现，更在于能够精确预测天文现象。根据一种假说，建于公元前两、三千多年前的英国巨石阵（Stonehenge）
+可以用来定位日月的位置并预测日食的发生。预测方法是使用巨石阵内 56 个奥布里洞（Aubrey holes）来实现的，它的原理是基于用公分子 56 来近似表达三个天文周期。
 
 这三个天文周期分别是太阳的运动周期（地球的周年运动）、月球的运行周期和沙罗周期，它们的周期和近似的分数表示如下表所示。于是我们可以把沙盘的圆周等分
 成 56 份，然后在上面简单地计数，来模拟日、地、月的运行。并且这些模拟可以不断通过观测来校正，这样使得整个预报系统能够长期相对精确地运行。\cite{beggs2012unifying}
@@ -137,6 +133,19 @@
 \end{tabular}
 \caption{基于 56 的日食预测原理}
 \end{table}
+
+在上述假设下，巨石阵可以理解为一种称为计数器机\cite{beggs2012unifying}的计算设施。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5.0in]{images/1_02-Stonehenge.jpg}
+\caption{巨石阵（图片来自于维基共享资源计划）}
+\end{figure}
+
+\begin{Exercise}[title={巨石阵作为计数器机}, difficulty=1, label=ex1_1]
+\Question 单纯的巨石阵模拟：依照上述方案，用程序再现巨石阵的运行，模拟日月的运行。
+\Question 可校准的巨石阵模拟：假设实际日月运行的周期和沙罗周期三者是互不可约的无理数，依照上述方案，考虑到假设的日月运行和模拟有差，但模拟可以调整状态去适应假设的情况，用程序再现这种模拟、调整的过程，进一步更好地模拟日月的运行。
+\end{Exercise}
 
 \section{文明时代}
 
