@@ -196,6 +196,65 @@
 \caption{基于 56 的日食预测原理}
 \end{table}
 
+下图是上面陈述过的原理的一种实施方案：通过在 56 个奥布里洞上插入 4 把不同的旗帜，分别代表日、月和沙罗周期，人们就可以模拟日月的运行，预测食变。
+代表月亮的旗帜，每天逆时针移动 2 个洞；代表太阳的旗帜，每 13 天逆时针移动 2 个洞；代表沙罗周期的两把旗帜，相互在对方的对径点，每年顺时针移动 3 个洞。
+当其中旗帜彼此接近的时候，就有可能发生食变。
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[rotate=10]
+    \draw (0,0) ellipse (6 and 3);
+    \foreach \a in {1,...,56}
+    {
+        \node (n\a) at ({
+            \a * 6.428571428571429
+        }:{
+            3.0 / sqrt(1 - 0.75 * cos(\a * 6.428571428571429) * cos(\a * 6.428571428571429)))
+        }){};
+    }
+    \foreach \a in {1,...,56}
+    {
+        \fill (n\a) circle [radius=2pt];
+    }
+    \foreach \a in {1,...,56}
+    {
+        \node (o\a) at ({
+            \a * 6.428571428571429
+        }:{
+            4.0 / sqrt(1 - 0.75 * cos(\a * 6.428571428571429) * cos(\a * 6.428571428571429)))
+        }){};
+    }
+    \node[circle, draw] (sun) at ($(n21) + (80:1)$) {\Sun};
+    \node[circle, draw] (moon) at ($(n38) + (80:1)$) {\Moon};
+    \node[circle, draw] (saros1) at ($(n31) + (80:1)$) {$\sigma$};
+    \node[circle, draw] (saros2) at ($(n3) + (80:1)$) {$\sigma$};
+    % phases
+    \draw[dotted](n56)--(n28);
+    \draw[dotted](n14)--(n42);
+    \node[dotted, circle, draw] (W) at ($(n56)!0.5!(o56)$) {西};
+    \node[dotted, circle, draw] (S) at ($(n14)!0.5!(o14)$) {南};
+    \node[dotted, circle, draw] (E) at ($(n28)!0.5!(o28)$) {东};
+    \node[dotted, circle, draw] (N) at ($(n42)!0.5!(o42)$) {北};
+    % sun
+    \draw[solid](sun)--(n21);
+    \draw[dotted](n21)--(0,0);
+    % moon
+    \draw[solid](moon)--(n38);
+    \draw[dotted](n38)--(0,0);
+    % saros
+    \draw[solid](saros1)--(n31);
+    \draw[solid](saros2)--(n3);
+    \draw[dotted](n3)--(n31);
+    % arrows
+    \draw[thick, ->] (o20) -- (o24) node[midway, above left] {每13日逆移2格};
+    \draw[thick, ->] (o34) -- (o41) node[midway, below] {每日逆移2格};
+    \draw[thick, ->] (o4) -- (o1) node[midway, above right] {每年顺移3格};
+    \draw[thick, ->] (o33) -- (o30) node[midway, below left] {每年顺移3格};
+
+\end{tikzpicture}
+\caption{设想中的巨石阵预测方法}
+\end{figure}
+
 在上述假设下，巨石阵可以理解为一种称为计数器机\cite{beggs2012unifying}的计算设施。
 
 \begin{figure}[ht]
@@ -289,65 +348,10 @@
 
 \section{巨石阵背后的数学}
 
-历法里的很多问题，都是假设天文周期的恒定性，在对它们时间测量基础上，进行恰当的逼近； 同时，测量总有误差，假设需要验证，
+历法里的很多问题，都是假设天文周期的恒定性，在对它们时间测量基础上，进行恰当的逼近；同时，测量总有误差，假设需要验证，
 然后在验证结果的基础上修正先前的假设。设想中的巨石阵预测方法就体现了这样的想法，本节我们对这个假设、观测、逼近、修正的想法做更多的讨论。
 
 \subsection{历法、逼近和连分数}
-
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}[rotate=10]
-    \draw (0,0) ellipse (6 and 3);
-    \foreach \a in {1,...,56}
-    {
-        \node (n\a) at ({
-            \a * 6.428571428571429
-        }:{
-            3.0 / sqrt(1 - 0.75 * cos(\a * 6.428571428571429) * cos(\a * 6.428571428571429)))
-        }){};
-    }
-    \foreach \a in {1,...,56}
-    {
-        \fill (n\a) circle [radius=2pt];
-    }
-    \foreach \a in {1,...,56}
-    {
-        \node (o\a) at ({
-            \a * 6.428571428571429
-        }:{
-            4.0 / sqrt(1 - 0.75 * cos(\a * 6.428571428571429) * cos(\a * 6.428571428571429)))
-        }){};
-    }
-    \node[circle, draw] (sun) at ($(n21) + (80:1)$) {\Sun};
-    \node[circle, draw] (moon) at ($(n38) + (80:1)$) {\Moon};
-    \node[circle, draw] (saros1) at ($(n31) + (80:1)$) {$\sigma$};
-    \node[circle, draw] (saros2) at ($(n3) + (80:1)$) {$\sigma$};
-    % phases
-    \draw[dotted](n56)--(n28);
-    \draw[dotted](n14)--(n42);
-    \node[dotted, circle, draw] (W) at ($(n56)!0.5!(o56)$) {W};
-    \node[dotted, circle, draw] (S) at ($(n14)!0.5!(o14)$) {S};
-    \node[dotted, circle, draw] (E) at ($(n28)!0.5!(o28)$) {E};
-    \node[dotted, circle, draw] (N) at ($(n42)!0.5!(o42)$) {N};
-    % sun
-    \draw[solid](sun)--(n21);
-    \draw[dotted](n21)--(0,0);
-    % moon
-    \draw[solid](moon)--(n38);
-    \draw[dotted](n38)--(0,0);
-    % saros
-    \draw[solid](saros1)--(n31);
-    \draw[solid](saros2)--(n3);
-    \draw[dotted](n3)--(n31);
-    % arrows
-    \draw[thick, ->] (o20) -- (o24) node[midway, above left] {每13日逆移2格};
-    \draw[thick, ->] (o34) -- (o41) node[midway, below] {每日逆移2格};
-    \draw[thick, ->] (o4) -- (o1) node[midway, above right] {每年顺移3格};
-    \draw[thick, ->] (o33) -- (o30) node[midway, below left] {每年顺移3格};
-
-\end{tikzpicture}
-\caption{设想中的巨石阵预测方法}
-\end{figure}
 
 
 
