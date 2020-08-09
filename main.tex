@@ -2,6 +2,7 @@
 
 \usepackage{hieroglf} % 添加古埃及象形文字
 \usepackage{starfont} % 添加天文符号
+\usepackage{amssymb}
 \usepackage{pifont} % 添加 Dingbat
 \usepackage{ccicons} % 添加 CC 协议
 \usepackage{datetime}
@@ -309,14 +310,41 @@
     {
         \fill (n\a) circle [radius=2pt];
     }
-    %\node[circle, draw] (earth) ($(0,0) + (80:1)$) {\Terra};
-    \node[circle, draw] (sun) at ($(n2) + (80:1)$) {\Sun};
+    \foreach \a in {1,...,56}
+    {
+        \node (o\a) at ({
+            \a * 6.428571428571429
+        }:{
+            4.0 / sqrt(1 - 0.75 * cos(\a * 6.428571428571429) * cos(\a * 6.428571428571429)))
+        }){};
+    }
+    \node[circle, draw] (sun) at ($(n21) + (80:1)$) {\Sun};
     \node[circle, draw] (moon) at ($(n38) + (80:1)$) {\Moon};
+    \node[circle, draw] (saros1) at ($(n31) + (80:1)$) {$\sigma$};
+    \node[circle, draw] (saros2) at ($(n3) + (80:1)$) {$\sigma$};
+    % phases
     \draw[dotted](n56)--(n28);
     \draw[dotted](n14)--(n42);
-    %\draw[dotted](earth)--(0,0);
-    \draw[solid](sun)--(n2);
+    \node[dotted, circle, draw] (W) at ($(n56)!0.5!(o56)$) {W};
+    \node[dotted, circle, draw] (S) at ($(n14)!0.5!(o14)$) {S};
+    \node[dotted, circle, draw] (E) at ($(n28)!0.5!(o28)$) {E};
+    \node[dotted, circle, draw] (N) at ($(n42)!0.5!(o42)$) {N};
+    % sun
+    \draw[solid](sun)--(n21);
+    \draw[dotted](n21)--(0,0);
+    % moon
     \draw[solid](moon)--(n38);
+    \draw[dotted](n38)--(0,0);
+    % saros
+    \draw[solid](saros1)--(n31);
+    \draw[solid](saros2)--(n3);
+    \draw[dotted](n3)--(n31);
+    % arrows
+    \draw[thick, ->] (o20) -- (o24) node[midway, above left] {每13日逆移2格};
+    \draw[thick, ->] (o34) -- (o41) node[midway, below] {每日逆移2格};
+    \draw[thick, ->] (o4) -- (o1) node[midway, above right] {每年顺移3格};
+    \draw[thick, ->] (o33) -- (o30) node[midway, below left] {每年顺移3格};
+
 \end{tikzpicture}
 \caption{设想中的巨石阵预测方法}
 \end{figure}
