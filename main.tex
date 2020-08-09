@@ -1,6 +1,7 @@
 \documentclass[a4paper,10.5pt]{book}
 
 \usepackage{hieroglf} % 添加古埃及象形文字
+\usepackage{starfont} % 添加天文符号
 \usepackage{pifont} % 添加 Dingbat
 \usepackage{ccicons} % 添加 CC 协议
 \usepackage{datetime}
@@ -13,6 +14,8 @@
 \renewcommand{\appendixpagename}{附录}
 
 \input{data/style}
+
+\usetikzlibrary{shapes,arrows,positioning,decorations.pathreplacing,calc}
 
 \newcommand{\specialcell}[2][c]{%
   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
@@ -282,20 +285,51 @@
 二十世纪末叶，有科学家认为，宇宙的存在是多重的，不止一个，每个宇宙都有自己的演化参数和历史。
 根据人择原理，人类所处的这个宇宙的参数，必须能说明人类自己的存在。
 
+
 \section{巨石阵背后的数学}
+
+历法里的很多问题，都是假设天文周期的恒定性，在对它们时间测量基础上，进行恰当的逼近； 同时，测量总有误差，假设需要验证，
+然后在验证结果的基础上修正先前的假设。设想中的巨石阵预测方法就体现了这样的想法，本节我们对这个假设、观测、逼近、修正的想法做更多的讨论。
 
 \subsection{历法、逼近和连分数}
 
-历法里的很多问题，都是在天文周期的时间测量基础上，对它们进行恰当的逼近，假设中的巨石阵预测方法就体现了这样的想法。
-本节我们对这个逼近的想法做更多的讨论。
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[rotate=10]
+    \draw (0,0) ellipse (6 and 3);
+    \foreach \a in {1,...,56}
+    {
+        \node (n\a) at ({
+            \a * 6.428571428571429
+        }:{
+            3.0 / sqrt(1 - 0.75 * cos(\a * 6.428571428571429) * cos(\a * 6.428571428571429)))
+        }){};
+    }
+    \foreach \a in {1,...,56}
+    {
+        \fill (n\a) circle [radius=2pt];
+    }
+    %\node[circle, draw] (earth) ($(0,0) + (80:1)$) {\Terra};
+    \node[circle, draw] (sun) at ($(n2) + (80:1)$) {\Sun};
+    \node[circle, draw] (moon) at ($(n38) + (80:1)$) {\Moon};
+    \draw[dotted](n56)--(n28);
+    \draw[dotted](n14)--(n42);
+    %\draw[dotted](earth)--(0,0);
+    \draw[solid](sun)--(n2);
+    \draw[solid](moon)--(n38);
+\end{tikzpicture}
+\caption{设想中的巨石阵预测方法}
+\end{figure}
+
+
 
 \subsection{神谕机与可学习}
 
-测量总有误差，假设需要验证，然后在验证结果上修正先前的假设。
-
 神谕机
 
-可学习
+可学习性
+
+学习的层次
 
 \section{三角函数的发明与计算}
 
